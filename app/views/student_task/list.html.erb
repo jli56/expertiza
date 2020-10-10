@@ -89,8 +89,9 @@
 <!--# end of first block-->
 <!--# start of second block-->
 
-  <% group = @student_tasks.group_by(&student_task.course.try :name)%>
-  <% group.each do |student_tasks| %>
+  <% group = @student_tasks.group_by(&course).each do | course, student_tasks|%>
+    <% if course%>
+    <%end %>
 <div class="topictable" style="width: 65%; display: inline-block; border: 1px solid #FFFFFF">
 <!--  add a for loop to check different course-->
   <table class="table table-striped" cellpadding="2">
