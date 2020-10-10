@@ -89,7 +89,7 @@
 <!--# end of first block-->
 <!--# start of second block-->
 
-  <% group = @student_tasks.group_by(&course).each do | course, student_tasks|%>
+  <% group = @student_tasks.group_by(&:course).each do | course, student_tasks|%>
     <% if course%>
     <%end %>
 <div class="topictable" style="width: 65%; display: inline-block; border: 1px solid #FFFFFF">
