@@ -88,7 +88,9 @@
 
 <!--# end of first block-->
 <!--# start of second block-->
-<div class="topictable" style="width: 65%; display: inline-block; border: 1px solid #ff0000">
+
+  <% @student_tasks.group_by{ |p| p.course.try :name}.each do |student_tasks|%>
+<div class="topictable" style="width: 65%; display: inline-block; border: 1px solid #FFFFFF">
 <!--  add a for loop to check different course-->
   <table class="table table-striped" cellpadding="2">
     <tr class="taskheader">
@@ -102,7 +104,7 @@
       <th>Publishing Rights</th>
       <th>Make Public <img src="/assets/info.png" title="Checking this means that you provide permission for your/your team's work to be available to others in the class or whomever the instructor chooses, once the submission deadline is passed."/></th>
     </tr>
-    <% @student_tasks.each do |student_task| %>
+    <% student_tasks.each do |student_task| %>
 
         <% participant = student_task.participant %>
         <% if student_task.assignment %>
@@ -146,5 +148,6 @@
     <% end %>
   </table>
 </div>
+    <% end %>
 <!--#end of second block-->
 </div>
